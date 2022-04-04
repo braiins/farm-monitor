@@ -21,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "iteration": 1649093142166,
+  "iteration": 1649095731441,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -251,7 +251,7 @@
             "uid": "${data_source}"
           },
           "exemplar": false,
-          "expr": "count(max by (instance) (hashboard_shares or up{job!=\"prometheus\"} * 0) == 0)\n",
+          "expr": "count(max by (instance) (rate(hashboard_shares[60s]) or up{job!=\"prometheus\"} * 0) == 0)",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -488,7 +488,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#6b50ff",
                 "value": null
               }
             ]
@@ -733,7 +733,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#6b50ff",
                 "value": null
               }
             ]
