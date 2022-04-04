@@ -21,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "iteration": 1649057625462,
+  "iteration": 1649093142166,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -54,12 +54,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#6b50ff",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -179,12 +175,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#6b50ff",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -273,18 +265,18 @@
     {
       "description": "",
       "gridPos": {
-        "h": 4,
+        "h": 5,
         "w": 6,
         "x": 18,
         "y": 1
       },
       "id": 126,
       "options": {
-        "content": "<table>\n    <tr>\n        <td><a href=\"https://braiins.com/\" target=\"_blank\">Braiins.com</a></td>\n        <td><a href=\"https://slushpool.com/\" target=\"_blank\">Slush Pool</a></td>\n    </tr>\n    <tr>\n        <td><a href=\"https://braiins.com/os/plus\" target=\"_blank\">Braiins OS+</a></td>\n        <td><a href=\"https://braiins.com/bitcoin-mining-stack-upgrade\" target=\"_blank\">Stratum V2</a></td>\n    </tr>\n    <tr>\n        <td><a href=\"https://insights.braiins.com/en/\" target=\"_blank\">Mining Insights</a></td>\n    </tr>\n</table>\n",
+        "content": "<div style=\"text-align:center; display:block; margin-bottom:10px\"><a href=\"https://braiins.com/os/plus?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\"  style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-os+-logo-reverse-rgb.svg?h=d35e19f3056bef1664b2c5cbde453a44\" height=\"23px\"></a></div>\n<div style=\"text-align:center; display:block; margin-bottom:10px\"><a href=\"https://slushpool.com/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/slushpool-logo-reverse-rgb.svg?h=6e9e1089b4b55194f400c37f6482f7e7\" height=\"25px\"></a></div>\n<div style=\"text-align:center; display:block; margin-bottom:10px\"><a href=\"https://insights.braiins.com/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-mining-insights-logo-on-dark-background-rgb.svg?h=01d2b660acfa395728940a28b9bf64ce\" height=\"17px\"></a></div>\n<div style=\"text-align:center; display:block; margin-bottom:10px\"><a href=\"https://stratumprotocol.org/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/stratum-v2-logo-reverse-rgb.svg?h=77e94750d6f57e33cf70c51e07e5aac5\" height=\"14px\"></a></div>",
         "mode": "html"
       },
       "pluginVersion": "8.4.0",
-      "title": "Braiins",
+      "title": "Braiins Product Stack",
       "type": "text"
     },
     {
@@ -303,7 +295,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#6b50ff",
                 "value": null
               }
             ]
@@ -360,7 +352,8 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "fixedColor": "#6b50ff",
+            "mode": "fixed"
           },
           "decimals": 0,
           "mappings": [],
@@ -425,7 +418,8 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "fixedColor": "#6b50ff",
+            "mode": "fixed"
           },
           "mappings": [],
           "thresholds": {
@@ -434,10 +428,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -511,7 +501,7 @@
         "h": 4,
         "w": 6,
         "x": 18,
-        "y": 5
+        "y": 6
       },
       "id": 75,
       "options": {
@@ -756,7 +746,7 @@
         "h": 4,
         "w": 6,
         "x": 18,
-        "y": 9
+        "y": 10
       },
       "id": 52,
       "options": {
@@ -824,7 +814,7 @@
         "h": 4,
         "w": 6,
         "x": 18,
-        "y": 13
+        "y": 14
       },
       "id": 81,
       "options": {
@@ -1092,7 +1082,7 @@
         "h": 4,
         "w": 6,
         "x": 18,
-        "y": 17
+        "y": 18
       },
       "id": 124,
       "links": [],
@@ -1210,7 +1200,7 @@
         "h": 6,
         "w": 6,
         "x": 18,
-        "y": 21
+        "y": 22
       },
       "id": 129,
       "options": {
@@ -1271,7 +1261,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 28
       },
       "id": 107,
       "panels": [],
@@ -1335,7 +1325,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 28
+        "y": 29
       },
       "id": 108,
       "options": {
@@ -1440,7 +1430,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 28
+        "y": 29
       },
       "id": 113,
       "options": {
@@ -1579,7 +1569,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 28
+        "y": 29
       },
       "id": 109,
       "options": {
@@ -1712,7 +1702,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 35
+        "y": 36
       },
       "id": 112,
       "options": {
@@ -1908,7 +1898,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 35
+        "y": 36
       },
       "id": 111,
       "options": {
@@ -2071,7 +2061,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 35
+        "y": 36
       },
       "id": 110,
       "options": {
@@ -2187,7 +2177,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 42
+        "y": 43
       },
       "id": 115,
       "options": {
@@ -2294,7 +2284,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 42
+        "y": 43
       },
       "id": 116,
       "options": {
@@ -2422,7 +2412,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 42
+        "y": 43
       },
       "id": 127,
       "options": {
@@ -2459,7 +2449,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 50
+        "y": 51
       },
       "id": 79,
       "panels": [],
@@ -2517,7 +2507,7 @@
         "h": 14,
         "w": 5,
         "x": 0,
-        "y": 51
+        "y": 52
       },
       "id": 101,
       "options": {
@@ -2588,7 +2578,7 @@
         "h": 14,
         "w": 3,
         "x": 5,
-        "y": 51
+        "y": 52
       },
       "id": 90,
       "options": {
@@ -2660,7 +2650,7 @@
         "h": 7,
         "w": 6,
         "x": 8,
-        "y": 51
+        "y": 52
       },
       "id": 105,
       "options": {
