@@ -73,7 +73,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "http://${__series.name}"
+                    "url": "http://${__data.fields.Miner}"
                   }
                 ]
               }
