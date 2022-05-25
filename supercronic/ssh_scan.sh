@@ -4,7 +4,7 @@
 fn="${2// /_}"
 
 # scan provided IP range using nmap and map in required layout
-miners=$(nmap -p22 --open -oG - "$1" | grep "/open" | cut -d" " -f2 | sed 's/.*/"&:8081"/' | paste -sd',' | sed "s/.*/[&]/")
+miners=$(nmap -p8081 --open -oG - "$1" | grep "/open" | cut -d" " -f2 | sed 's/.*/"&:8081"/' | paste -sd',' | sed "s/.*/[&]/")
 # store the results
 echo "[{"\"targets\": $miners"}]" > /mnt/miners_${fn}.json
 
