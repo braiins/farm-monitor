@@ -27,6 +27,10 @@ services:
       - scanner_data:/mnt
       # uncomment to persist data outside the container
       # - ./prometheus_data:/prometheus
+      # if you have run prometheus container before, remove the container: docker-compose rm prometheus
+      # make new directory prometheus_data: mkdir prometheus_data
+      # change owner of the directory to "nobody": sudo chown 65534:65534 prometheus_data/
+      # run prometheus: docker-compose up -d prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus_scan.yml'
       #- '--config.file=/etc/prometheus/prometheus_static.yml'
