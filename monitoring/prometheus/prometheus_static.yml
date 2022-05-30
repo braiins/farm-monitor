@@ -53,28 +53,5 @@ scrape_configs:
       # all the data. Make sure you really need these metrics and your storage size is
       # appropriate.
       - source_labels: [ __name__ ]
-        regex: 'stratum_request_duration_bucket|stratum_request_duration_count|stratum_request_duration_sum'
+        regex: 'client_generated_work|client_order|client_start_total|client_stop_total|dangerous_temperature|fan_rpm_feedback|hashboard_power|hashboard_temperature|hot_temperature|chips_discovered|chips_expected|process_cpu_seconds_total|process_max_fds|process_open_fds|process_resident_memory_bytes|process_start_time_seconds|process_threads|process_virtual_memory_bytes|stratum_job_counter|stratum_last_difficulty|stratum_request_duration_bucket|stratum_request_duration_count|stratum_request_duration_sum|tuner_iteration'
         action: drop
-      ###################################################################################
-      # Temporary re-write of client_id into more useful labels
-      # {connection_type, protocol, user, worker, host}
-      - source_labels: [client_id]
-        target_label: "host"
-        regex: ".*@(.*)"
-        action: "replace"
-      - source_labels: [client_id]
-        target_label: "connection_type"
-        regex: "^(.+?):.*"
-        action: "replace"
-      - source_labels: [client_id]
-        target_label: "worker"
-        regex: ".*\\.(.+?)@.*"
-        action: "replace"
-      - source_labels: [client_id]
-        target_label: "protocol"
-        regex: "^.+?:(.*):.*"
-        action: "replace"
-      - source_labels: [client_id]
-        target_label: "user"
-        regex: ".*\\/\\/(.+?)[\\.@].*"
-        action: "replace"
