@@ -9,14 +9,11 @@ volumes:
 
 services:
   bos_scanner:
-    image: braiins/bos_scanner:latest
+    image: braiinssystems/bos_monitor:v1.0.0
     container_name: bos_scanner
     volumes:
       - ./supercronic/scan_crontab:/usr/local/share/scan_crontab
       - scanner_data:/mnt:rw
-    build:
-      context: supercronic
-      dockerfile: Dockerfile
     network_mode: "host"
 
   prometheus:
