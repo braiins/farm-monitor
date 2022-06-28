@@ -6,5 +6,5 @@
 # <cron schedule expression> ssh_scan.sh "<IP range>" "entity name"
 # see https://crontab.guru/ on how to specify the cron schedule expression
 
-*/3 * * * * * ssh_scan.sh "1.2.3.0-255" "Building A"
-*/3 * * * * * ssh_scan.sh "1.2.0-255.3" "Building B"
+* */3 * * * * * ssh_scan.sh "1.2.3.0-255" "Building A"
+* */3 * * * * * ssh_scan.sh "1.2.0-255.3" "Building B"
