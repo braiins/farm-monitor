@@ -1,46 +1,36 @@
 version: '3'
-
-networks:
-  monitor-net:
-    driver: bridge
 volumes:
-  scanner_data: {}
+  prometheus_data: {}
   grafana_data: {}
-
+  scanner_data: {}
 services:
-  bos_scanner:
-    image: braiinssystems/bos_monitor:v1.0.0
-    container_name: bos_scanner
-    volumes:
-      - ./scan_crontab:/usr/local/share/scan_crontab
-      - scanner_data:/mnt:rw
+  metrics-exporter:
+    image: braiinssystems/farm-monitor:23.01
+    container_name: metrics-exporter
     network_mode: "host"
-
+    volumes:
+      - ./monitoring/metrics_exporter:/etc/metrics_exporter
+      - scanner_data:/mnt:rw
+    command:
+      - '--config=/etc/metrics_exporter/metrics_exporter.toml'
+      - '--sd-file=/mnt/bos_miners.json'
+    restart: unless-stopped
   prometheus:
-    image: prom/prometheus:v2.33.5
+    image: prom/prometheus:latest
     container_name: prometheus
+    network_mode: "host"
     volumes:
       - ./monitoring/prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
       - scanner_data:/mnt
-      # uncomment to persist data outside the container
-      # - ./prometheus_data:/prometheus
-      # if you have run prometheus container before, remove the container: docker-compose rm prometheus
-      # make new directory prometheus_data: mkdir prometheus_data
-      # change owner of the directory to "nobody": sudo chown 65534:65534 prometheus_data/
-      # run prometheus: docker-compose up -d prometheus
     command:
-      - '--config.file=/etc/prometheus/prometheus_scan.yml'
-      #- '--config.file=/etc/prometheus/prometheus_static.yml'
+      - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
     restart: unless-stopped
-    ports:
-      - "9090:9090"
-    networks:
-      - monitor-net
     logging:
       driver: "json-file"
       options:
@@ -49,50 +39,23 @@ services:
         compress: "true"
     labels:
       org.label-schema.group: "monitoring"
-
-  nodeexporter:
-    image: prom/node-exporter:v1.3.1
-    container_name: nodeexporter
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-    restart: unless-stopped
-    # ports:
-    #   - "9100:9100"
-    networks:
-      - monitor-net
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "5"
-        compress: "true"
-    labels:
-      org.label-schema.group: "monitoring"
-
   grafana:
     image: grafana/grafana:8.4.0
     container_name: grafana
+    network_mode: "host"
+    depends_on:
+      - prometheus
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
     environment:
+      # credentials are useful in a case, that the user want to have Grafana under password protection. In such case uncomment.
       #- GF_SECURITY_ADMIN_USER=admin
       #- GF_SECURITY_ADMIN_PASSWORD=admin
       #- GF_USERS_ALLOW_SIGN_UP=true
       - GF_PATHS_CONFIG=/etc/grafana/provisioning/grafana.ini
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/default_dashboards/farm-dashboard.json
     restart: unless-stopped
-    ports:
-      - "3000:3000"
-    networks:
-      - monitor-net
     logging:
       driver: "json-file"
       options:
