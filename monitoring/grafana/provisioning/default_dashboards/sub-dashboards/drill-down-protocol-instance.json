@@ -21,16 +21,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1649057106621,
+  "id": 15,
+  "iteration": 1669993492078,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${data_source}"
-      },
-      "description": "",
+      "description": "List of miners by mining protocol",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -38,15 +35,9 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "auto"
+            "displayMode": "auto",
+            "filterable": true
           },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "",
-              "url": "http://${__value.text}"
-            }
-          ],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -58,36 +49,11 @@
             ]
           }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Field"
-            },
-            "properties": [
-              {
-                "id": "custom.hidden",
-                "value": true
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Last *"
-            },
-            "properties": [
-              {
-                "id": "custom.hidden",
-                "value": true
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 20,
-        "w": 14,
+        "w": 24,
         "x": 0,
         "y": 0
       },
@@ -101,37 +67,67 @@
           "show": false
         },
         "showHeader": true,
-        "sortBy": [
-          {
-            "desc": false,
-            "displayName": "__name__"
-          }
-        ]
+        "sortBy": []
       },
       "pluginVersion": "8.4.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${data_source}"
+            "uid": "PABF2E7BD7AE7B0F4"
           },
           "exemplar": false,
-          "expr": "max by (instance, job) (hashboard_shares or up{job!=\"prometheus\"} * 0) == 0",
+          "expr": "client_status{connection_type=\"user\", protocol=~\"$protocol\"} > 0",
+          "format": "table",
           "instant": true,
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "title": "Miners Not Mining",
+      "title": "Miners by Mining Protocol",
       "transformations": [
         {
-          "id": "reduce",
+          "id": "organize",
           "options": {
-            "labelsToFields": true,
-            "reducers": [
-              "lastNotNull"
-            ]
+            "excludeByName": {
+              "Time": true,
+              "Value": true,
+              "__name__": true,
+              "client_id": true,
+              "connection_type": true,
+              "host": true,
+              "host_id": true,
+              "job": true
+            },
+            "indexByName": {
+              "Time": 12,
+              "Value": 13,
+              "__name__": 4,
+              "connection_type": 5,
+              "host": 6,
+              "host_id": 7,
+              "instance": 3,
+              "job": 8,
+              "label": 0,
+              "protocol": 9,
+              "site_id": 1,
+              "subnet_id": 2,
+              "user": 10,
+              "worker": 11
+            },
+            "renameByName": {
+              "Time": "Time",
+              "Value": "",
+              "building": "Building",
+              "instance": "Miner",
+              "label": "Building",
+              "protocol": "Protocol",
+              "site_id": "Site",
+              "subnet_id": "Subnet",
+              "user": "User",
+              "worker": "Worker"
+            }
           }
         }
       ],
@@ -147,20 +143,25 @@
       {
         "current": {
           "selected": false,
-          "text": "default",
-          "value": "default"
+          "text": "All",
+          "value": "$__all"
         },
+        "definition": "label_values(protocol)",
         "hide": 0,
-        "includeAll": false,
-        "label": "Data Source",
+        "includeAll": true,
+        "label": "Protocol",
         "multi": false,
-        "name": "data_source",
+        "name": "protocol",
         "options": [],
-        "query": "prometheus",
+        "query": {
+          "query": "label_values(protocol)",
+          "refId": "StandardVariableQuery"
+        },
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "type": "datasource"
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -170,8 +171,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Drill-Down (Not Mining --> Instance)",
-  "uid": "zLpA9dsnk",
-  "version": 1,
+  "title": "Drill-Down (Protocol --> Instance)",
+  "uid": "g198TdN4k",
+  "version": 3,
   "weekStart": ""
 }

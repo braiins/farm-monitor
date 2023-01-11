@@ -1,0 +1,72 @@
+global:
+  scrape_interval: 1m
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 15s
+    static_configs:
+    - targets: ["localhost:9090"]
+
+  - job_name: "metrics-exporter"
+    metrics_path: "/metrics"
+    honor_labels: true
+    scrape_interval: 30s
+    static_configs:
+    - targets: ["localhost:8081"]
+    metric_relabel_configs:
+      # The following is optional. Useful if you manage your farm by using
+      # subnets.
+      # Extract the site ID (second octet of IPv4 address)
+      - source_labels: ["instance"]
+        regex: "\\d+\\.(\\d+)\\.\\d+\\.\\d+.*"
+        target_label: "site_id"
+      # Extract the subnet ID (third octet of IPv4 address)
+      - source_labels: ["instance"]
+        regex: "\\d+\\.\\d+\\.(\\d+)\\.\\d+.*"
+        target_label: "subnet_id"
+      # Extract the host ID (last octet of IPv4 address)
+      - source_labels: ["instance"]
+        regex: "\\d+\\.\\d+\\.\\d+\\.(\\d+).*"
+        target_label: "host_id"
+
+  - job_name: 'braiinsos-data'
+    metrics_path: '/metrics'
+    scrape_interval: 1m
+    file_sd_configs:
+      - files:
+        - /mnt/bos_miners.json
+        refresh_interval: 30s
+    relabel_configs:
+      # Get rid of port in address
+      - source_labels: ["__address__"]
+        regex: "^(.+?):.*"
+        target_label: "instance"
+      ###################################################################################
+      # The following is optional. Useful if you manage your farm by using
+      # subnets.
+      # Extract the site ID (second octet of IPv4 address)
+      - source_labels: ["__address__"]
+        regex: "\\d+\\.(\\d+)\\.\\d+\\.\\d+.*"
+        target_label: "site_id"
+      # Extract the subnet ID (third octet of IPv4 address)
+      - source_labels: ["__address__"]
+        regex: "\\d+\\.\\d+\\.(\\d+)\\.\\d+.*"
+        target_label: "subnet_id"
+      # Extract the host ID (last octet of IPv4 address)
+      - source_labels: ["__address__"]
+        regex: "\\d+\\.\\d+\\.\\d+\\.(\\d+).*"
+        target_label: "host_id"
+    metric_relabel_configs:
+      ###################################################################################
+      # Some of the detailed metrics are better removed. You can comment out / remove
+      # the following section, however doing so will greatly increase the size needed to store
+      # all the data. Make sure you really need these metrics and your storage size is
+      # appropriate.
+      - source_labels: [ __name__ ]
+        regex: 'client_generated_work|client_order|client_start_total|client_stop_total|dangerous_temperature|hashboard_power|hashboard_temperature|hot_temperature|chips_discovered|chips_expected|process_cpu_seconds_total|process_max_fds|process_open_fds|process_resident_memory_bytes|process_start_time_seconds|process_threads|process_virtual_memory_bytes|stratum_job_counter|stratum_last_difficulty|stratum_request_duration_bucket|stratum_request_duration_count|stratum_request_duration_sum|tuner_iteration'
+        action: drop
+     # Rename nominal HR to meet the same name as for stock FW
+      - source_labels: [__name__]
+        regex: "hashboard_nominal_hashrate_gigahashes_per_second"
+        target_label: __name__
+        replacement: "hashboard_nominal_hashrate_ghs"
