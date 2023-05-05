@@ -1,0 +1,443 @@
+/* Hide some header elements */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+body {
+    background-color: #262626 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision
+}
+
+body,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+input,
+select,
+button,
+[class*="-button"] {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+}
+
+.page-toolbar,
+    /* Page header in alerting section */
+.css-1to1ph {
+    background-color: #161616 !important;
+    border-bottom: 1px solid #525252 !important;
+    margin-bottom: 1rem !important;
+}
+
+/*
+ * Page toolbar contains breadcrumbs that are somehow manipulated on mobile
+ * to only show the last segment… this, however, breaks the layout
+ * by shifting it too much to the left (for our font I guess).
+ */
+@media screen and (max-width: 768px) {
+    .page-toolbar nav h1 {
+        padding-left: 0.5em !important;
+    }
+}
+
+a {
+    color: #A8A8A8
+}
+
+a:hover {
+    color: #F4F4F4
+}
+
+nav.sidemenu {
+    background-color: #161616;
+    border-right: 1px solid #525252;
+}
+
+/* Found in alerting section */
+.page-body {
+    background-color: #161616 !important;
+    border: none !important;
+}
+
+/* Wrapper around "no rules exist yet" message in the alerting section */
+[class*="-call-to-action-card"] {
+    background-color: #161616 !important;
+}
+
+div[role="dialog"] > ul[role="menu"] {
+    background-color: #393939 !important;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%),
+    0 3px 14px 2px rgb(0 0 0 / 12%),
+    0 5px 5px -3px rgb(0 0 0 / 40%) !important;
+}
+
+div[role="dialog"] > ul[role="menu"] > li[role="menuitem"] {
+    background: none !important;
+}
+
+/* Side nav active item border */
+nav.sidemenu li .dropdown [type="button"][aria-haspopup]::before,
+    /* dashboard settings sidenav */
+.dashboard-settings__nav-item.active::before,
+    /* Horizontal tabs active pseudo-border */
+[class*="-activeTabStyle"]::before {
+    background-color: #6b50ff !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+}
+
+
+/* =========================================== */
+/* Forms                                       */
+/* =========================================== */
+
+input:not([role="combobox"]),
+select,
+[class*="-input-wrapper"] {
+    background-color: #393939 !important;
+    color: #fff !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #525252 !important;
+}
+
+[class*="-input-input"]:focus {
+    outline: 1px solid #fff !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+}
+
+[class$="-Label"] > label {
+    letter-spacing: .32px;
+    color: #a8a8a8;
+    vertical-align: baseline;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    display: inline-block;
+}
+
+.gf-form-label,
+.gf-form-switch {
+    background: none !important;
+    border-radius: 0 !important;
+    outline: 1px solid #393939 !important;
+    color: #CCCCDCFF !important;
+}
+
+
+/* =========================================== */
+
+.markdown-html {
+    color: #A8A8A8
+}
+
+.markdown-html table, .markdown-html td, .markdown-html th {
+    border: none !important
+}
+
+.markdown-html em {
+    color: #A8A8A8
+}
+
+.markdown-html a {
+    color: #8b7cff
+}
+
+.markdown-html a:hover {
+    color: #8b7cff
+}
+
+[class*="-LegendLabel-LegendClickabel"] {
+    color: #A8A8A8 !important
+}
+
+[class*="-LegendLabel-LegendClickabel"]:hover {
+    color: #F4F4F4 !important
+}
+
+/* =========================================== */
+/* Panels                                      */
+/* =========================================== */
+
+.panel-container {
+    background-color: #161616;
+    border: none;
+    border-radius: 0;
+}
+
+.panel-title {
+    color: #E0E0E0;
+    font-weight: 600
+}
+
+.panel-info-corner--info .panel-info-corner-inner {
+    border-left: 32px solid #000;
+    border-right: none;
+}
+
+.panel-info-corner--error .panel-info-corner-inner {
+    border-left: 32px solid #d9222c;
+    border-right: none;
+}
+
+.panel-content {
+    color: #A8A8A8
+}
+
+.panel-content * {
+    border-radius: 0 !important
+}
+
+.panel-title-container {
+    background-color: #161616
+}
+
+.panel-title-container:hover {
+    background-color: black
+}
+
+.variable-value-dropdown,
+    /* dropdown menu on a panel */
+.dropdown-menu--menu {
+    background-color: #393939 !important;
+    box-shadow: 0 8px 24px #010409 !important;
+}
+
+/* =========================================== */
+/* Panel editor                                */
+/* =========================================== */
+
+/* Edit panel / bottom container with query/transform tabs */
+.css-hhfqq2,
+    /* Edit panel / right sidebar attributes */
+.css-v2fjpc {
+    background: #161616 !important;
+}
+
+/* Edit panel / bottom container / exemplars button */
+.css-1pews2r {
+    background-color: #5e5e5e !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+}
+
+/* edit panel / collapsible query header */
+.css-jxmmlh-Header {
+    background: #393939 !important;
+}
+
+/* parent of "label.inline-switch-label" in the dashboard editor header */
+.css-15rfc12 {
+    background: none !important
+}
+
+label.inline-switch-label {
+    color: #A8A8A8 !important
+}
+
+/* sidebar header */
+.css-1xappwv {
+    background: #161616 !important;
+}
+
+/* panel editor page background */
+.css-1vwi886 {
+    background: #262626 !important
+}
+
+.submenu-controls {
+    padding-top: 16px !important
+}
+
+.dashboard-row__title {
+    color: #A8A8A8;
+    font-size: 1.3125rem
+}
+
+.dashboard-row--collapsed {
+    background: #161616;
+    height: 36px;
+    margin-top: -3px
+}
+
+.dashboard-settings {
+    background-color: #161616 !important;
+}
+
+/* dashboard settings content box */
+aside + .css-1hq4llk {
+    background-color: #262626 !important;
+}
+
+/* =========================================== */
+/* Page specific                               */
+/* =========================================== */
+
+/* Login */
+
+/* Login background with fugly color banding (better selector is not available) */
+body.login-page .main-view > div,
+body.login-page .main-view > div::before {
+    background: none !important;
+}
+
+/* Login centered content box */
+.login-content-box {
+    border-radius: 0 !important;
+    background-color: #161616 !important;
+    padding-top: 0 !important;
+}
+
+/* Login header with logo & title into one row with black background */
+.login-content-box > div:first-child {
+    pointer-events: none !important;
+}
+
+.login-content-box > div:first-child img {
+    margin-top: 16px;
+}
+
+.login-content-box h1 {
+    font-weight: bold !important;
+    color: #fff !important;
+}
+
+/* Login button */
+.login-content-box button[aria-label="Login button"] {
+    min-height: 40px !important;
+    padding: 0.5rem 1rem !important;
+    text-transform: uppercase !important;
+    margin-top: 1rem !important;
+
+    background-color: #6b50ff !important;
+    color: #fff !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+}
+
+/* Forgot password link */
+.login-content-box a {
+    color: #8b7cff !important;
+    background: none !important;
+    font-weight: normal !important;
+}
+
+/* Login footer */
+body.login-page footer.footer {
+    display: none !important
+}
+
+/* =========================================== */
+/* Misc Widgets                                */
+/* =========================================== */
+
+.popper__background {
+    background: #161616 !important;
+}
+
+#TimePickerContent {
+    background-color: #262626 !important;
+    box-shadow: 0 8px 24px #010409 !important;
+}
+
+/* Blue "primary" button */
+button.css-1e07s1o-button {
+    text-transform: uppercase !important;
+    background-color: #6b50ff !important;
+    color: #fff !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+}
+
+button.toolbar-button,
+.variable-link-wrapper > button {
+    background-color: #5e5e5e !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+
+/* inactive radio group item (eg.: view mode selection in dashboard search) */
+label[for*="-radiogroup-"],
+.css-1i8hcrs {
+    background: none !important;
+}
+
+/* Active radio group item */
+.css-1600jn1:checked + label {
+    background: #363636 !important;
+}
+
+.page-action-bar > [class^="css-"][class$="-button"],
+    /* notification policy big add button */
+.css-1llizkv-button,
+    /* Alerting "new rule" big button */
+.css-14u5zyb-button {
+    background-color: #6b50ff !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+
+/* Table zebra */
+.filter-table tbody tr:nth-child(2n+1) {
+    background: #262626;
+}
+
+.admin-settings-section {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+/* =========================================== */
+/* Search                                      */
+/* =========================================== */
+
+/* page background */
+.css-1d1ppdn {
+    background-color: #161616 !important;
+}
+
+/* main search input */
+input[placeholder="Search dashboards by name"] {
+    padding-left: 1rem !important;
+}
+
+/* sub-dashboards container */
+.css-1pbyw2o,
+.css-17b648l {
+    background-color: #262626 !important;
+}
+
+/* dashboard entry box */
+.css-3cnwzy {
+    background-color: #363636 !important;
+}
+
+/* =========================================== */
+/* Code editor                                 */
+/* =========================================== */
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input,
+.monaco-editor .margin {
+    background-color: #262626 !important;
+}
+
+/* =========================================== */
+/* Modals                                      */
+/* =========================================== */
+[data-overlay-container] > [tabindex='-1'] {
+    background-color: #262626 !important;
+    border-radius: 0 !important;
+    border: none !important;
+}

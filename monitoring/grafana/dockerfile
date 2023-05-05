@@ -1,0 +1,37 @@
+# Inspired by: https://github.com/VolkovLabs/volkovlabs-app/blob/main/Dockerfile
+
+FROM grafana/grafana:9.5.1
+
+COPY entrypoint.sh /
+
+##################################################################
+
+# File manipulation wouldn't work without this
+USER root
+
+# Replace Favicon & logo
+COPY img/fav32.png /usr/share/grafana/public/img
+COPY img/logo.svg /usr/share/grafana/public/img/grafana_icon.svg
+
+# Update Title
+RUN find /usr/share/grafana/public/build/ -name *.js -exec \
+    sed -i 's|r.AppTitle="Grafana"|r.AppTitle="Farm Monitor: Grafana"|g' {} \;
+
+# Inject our CSS into the index page
+COPY ./tweaks.css /usr/share/grafana/public/build/tweaks.css
+RUN sed -i \
+    's|</head>|<link rel="stylesheet" href="public/build/tweaks.css"></head>|g' \
+    /usr/share/grafana/public/views/index.html
+
+# Page Title
+RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|"Grafana"|"FARM Monitor"|g' {} \;
+
+# Login Title
+RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|"Welcome to Grafana"|"Log in to FARM Monitor"|g' {} \;
+
+##################################################################
+
+USER grafana
+
+## Entrypoint
+ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]

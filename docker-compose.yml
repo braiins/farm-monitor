@@ -1,28 +1,31 @@
 version: '3'
+
 volumes:
   prometheus_data: {}
   grafana_data: {}
   scanner_data: {}
+
 services:
   metrics-exporter:
-    image: braiinssystems/farm-monitor:23.01
-    container_name: metrics-exporter
+    image: "braiinssystems/farm-monitor:23.01"
+    container_name: "metrics-exporter"
     network_mode: "host"
     volumes:
-      - ./monitoring/metrics_exporter:/etc/metrics_exporter
-      - scanner_data:/mnt:rw
+      - "./monitoring/metrics_exporter:/etc/metrics_exporter"
+      - "scanner_data:/mnt:rw"
     command:
       - '--config=/etc/metrics_exporter/metrics_exporter.toml'
       - '--sd-file=/mnt/bos_miners.json'
-    restart: unless-stopped
+    restart: "unless-stopped"
+
   prometheus:
-    image: prom/prometheus:latest
-    container_name: prometheus
+    image: "prom/prometheus:latest"
+    container_name: "prometheus"
     network_mode: "host"
     volumes:
-      - ./monitoring/prometheus:/etc/prometheus
-      - prometheus_data:/prometheus
-      - scanner_data:/mnt
+      - "./monitoring/prometheus:/etc/prometheus"
+      - "prometheus_data:/prometheus"
+      - "scanner_data:/mnt"
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -30,7 +33,7 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention.time=200h'
       - '--web.enable-lifecycle'
-    restart: unless-stopped
+    restart: "unless-stopped"
     logging:
       driver: "json-file"
       options:
@@ -39,23 +42,24 @@ services:
         compress: "true"
     labels:
       org.label-schema.group: "monitoring"
+
   grafana:
-    image: grafana/grafana:8.4.0
-    container_name: grafana
+    build: "./monitoring/grafana"
+    container_name: "grafana"
     network_mode: "host"
     depends_on:
-      - prometheus
+      - "prometheus"
     volumes:
-      - grafana_data:/var/lib/grafana
-      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - "grafana_data:/var/lib/grafana"
+      - "./monitoring/grafana/provisioning:/etc/grafana/provisioning"
     environment:
       # credentials are useful in a case, that the user want to have Grafana under password protection. In such case uncomment.
       #- GF_SECURITY_ADMIN_USER=admin
       #- GF_SECURITY_ADMIN_PASSWORD=admin
       #- GF_USERS_ALLOW_SIGN_UP=true
-      - GF_PATHS_CONFIG=/etc/grafana/provisioning/grafana.ini
-      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/default_dashboards/farm-dashboard.json
-    restart: unless-stopped
+      - "GF_PATHS_CONFIG=/etc/grafana/provisioning/grafana.ini"
+      - "GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/default_dashboards/farm-dashboard.json"
+    restart: "unless-stopped"
     logging:
       driver: "json-file"
       options:
