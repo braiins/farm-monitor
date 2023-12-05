@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 14,
+  "id": 21,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -128,7 +128,8 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
       "pluginVersion": "9.5.1",
       "targets": [
@@ -395,10 +396,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<table width=\"100%\" style:\" border: none !important; table-layout: fixed; \" id=\"bps-table\">\n<tr>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/os/plus?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-os-plus-logo-reverse-rgb.svg?h=d35e19f3056bef1664b2c5cbde453a44\" height=\"25px\" align=\"center\"></a></td>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/pool\"  target=\"_blank\"><img src=\"https://braiins.visualbook.pro/assets/img/logos/braiins-pool-logo-reverse-rgb.svg\" height=\"25px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://stratumprotocol.org/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/stratum-v2-logo-reverse-rgb.svg?h=77e94750d6f57e33cf70c51e07e5aac5\" height=\"12px\"></a></td>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://insights.braiins.com/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-insights-logo-on-dark-background-rgb.svg?h=aad9d059abab45e38f162e05c1fa322f\" height=\"16px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\" colspan=\"2\"><a href=\"https://braiins.com/farm-proxy/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/farm-proxy-logo-white-rgb.svg?h=3e5188e1d46f58ccb0b910c6f8184b9b\" height=\"30px\"></a></td>\n</tr>\n</table>",
+        "content": "<table width=\"100%\" style:\" border: none !important; table-layout: fixed; \" id=\"bps-table\">\n<tr>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/os/plus?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-os-plus-logo-reverse-rgb.svg?h=d35e19f3056bef1664b2c5cbde453a44\" height=\"25px\" align=\"center\"></a></td>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/pool\"  target=\"_blank\"><img src=\"https://braiins.visualbook.pro/assets/img/logos/braiins-pool-logo-reverse-rgb.svg\" height=\"25px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://braiins.com/toolbox/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-toolbox-logo-white-rgb.svg?h=c08740eec6dfcb889b4293fb9d87146a\" height=\"12px\"></a></td>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://insights.braiins.com/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-insights-logo-on-dark-background-rgb.svg?h=aad9d059abab45e38f162e05c1fa322f\" height=\"16px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\" colspan=\"2\"><a href=\"https://braiins.com/farm-proxy/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/farm-proxy-logo-white-rgb.svg?h=3e5188e1d46f58ccb0b910c6f8184b9b\" height=\"30px\"></a></td>\n</tr>\n</table>",
         "mode": "html"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -467,9 +468,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -519,6 +521,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
+      "description": "",
       "gridPos": {
         "h": 5,
         "w": 8,
@@ -535,7 +538,7 @@
         "content": "Farm Monitor guideline: [documentation](https://academy.braiins.com/en/farm-monitor/about)\n\n[Get support](https://help.braiins.com/en/support/tickets/new) from the Braiins team\n\n*Dashboard is interactive, most of the graphs redirect user to a detail after a click on the statistic/graph.*\n\nFarm Monitor displays only data from devices running on **BOS+** or **stock firmware** (Antminers X17 and X19). BOS+ exposes it's metrics on `ip-address:8081/metrics` and provides many more data then the stock firmware. Data from stock are pulled from cgminer API by **metrics-exporter** and then exposed on `host:8081/metrics` to be digested by Prometheus.",
         "mode": "markdown"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -545,7 +548,7 @@
           "refId": "A"
         }
       ],
-      "title": "TL;DR",
+      "title": "Farm Monitor  v$version",
       "type": "text"
     },
     {
@@ -609,9 +612,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -710,7 +714,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -718,7 +722,7 @@
             "uid": "PABF2E7BD7AE7B0F4"
           },
           "exemplar": false,
-          "expr": "#sum(metrics_exporter_discovered_devices{fw=~\"bos|stock\"}) by (fw)\ncount by (job) (up{job=~\"$OS\",label=~\"$label\",instance!=\"localhost:8081\"})",
+          "expr": "#sum(metrics_exporter_discovered_devices{fw=~\"bos|stock\"}) by (fw)\ncount by (job) (miner_metadata{job=~\"$OS\",label=~\"$label\",instance!=\"localhost:8081\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "{{job}}",
@@ -814,7 +818,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -901,7 +905,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -979,7 +983,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1057,7 +1061,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1137,7 +1141,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1224,7 +1228,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1309,7 +1313,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1394,7 +1398,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1608,8 +1612,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1739,8 +1742,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#f95355",
-                "value": null
+                "color": "#f95355"
               },
               {
                 "color": "#c063f9",
@@ -1777,7 +1779,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1850,8 +1852,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#ffffff",
-                "value": null
+                "color": "#ffffff"
               }
             ]
           }
@@ -1882,7 +1883,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -1966,8 +1967,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#f4f4f4",
-                "value": null
+                "color": "#f4f4f4"
               },
               {
                 "color": "#f95355",
@@ -2002,7 +2002,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -2101,8 +2101,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#8b7cff",
-                "value": null
+                "color": "#8b7cff"
               }
             ]
           }
@@ -2209,7 +2208,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -2340,8 +2339,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-purple",
-                "value": null
+                "color": "semi-dark-purple"
               }
             ]
           },
@@ -2430,8 +2428,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -2488,7 +2485,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -2604,8 +2601,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2758,8 +2754,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#2460ff",
-                "value": null
+                "color": "#2460ff"
               },
               {
                 "color": "#4b8aff",
@@ -2796,7 +2791,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -2871,8 +2866,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3013,8 +3007,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -3041,7 +3034,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3186,8 +3179,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#005e5e",
-                "value": null
+                "color": "#005e5e"
               },
               {
                 "color": "#13a454",
@@ -3219,7 +3211,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3273,8 +3265,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3306,7 +3297,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3381,8 +3372,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3463,8 +3453,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3495,7 +3484,7 @@
           "titleSize": 24
         }
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3586,8 +3575,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3615,7 +3603,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3670,8 +3658,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -3699,7 +3686,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3750,8 +3737,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#f95355",
-                "value": null
+                "color": "#f95355"
               },
               {
                 "color": "#cfdb5c",
@@ -3788,7 +3774,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -3838,8 +3824,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -3871,7 +3856,7 @@
           }
         ]
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -4066,8 +4051,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4242,8 +4226,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4364,8 +4347,7 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#f95355",
-                "value": null
+                "color": "#f95355"
               },
               {
                 "color": "#cfdb5c",
@@ -4402,7 +4384,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -4453,8 +4435,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4491,7 +4472,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.5.1",
+      "pluginVersion": "9.4.3",
       "targets": [
         {
           "datasource": {
@@ -4555,8 +4536,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4649,8 +4629,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -4694,7 +4673,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "1m",
+  "refresh": "5s",
   "revision": 1,
   "schemaVersion": 38,
   "style": "dark",
@@ -4790,6 +4769,28 @@
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PABF2E7BD7AE7B0F4"
+        },
+        "definition": "label_values(metrics_exporter_metadata_info,version)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "version",
+        "options": [],
+        "query": {
+          "query": "label_values(metrics_exporter_metadata_info,version)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -4800,7 +4801,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Farm Dashboard",
-  "uid": "X5qFFjI4z",
-  "version": 7,
+  "uid": "db7f8ee2-e051-4dfd-bc02-de973d67b091",
+  "version": 1,
   "weekStart": ""
 }
