@@ -7,7 +7,7 @@ volumes:
 
 services:
   metrics-exporter:
-    image: "braiinssystems/farm-monitor:23.01"
+    image: "braiinssystems/farm-monitor:23.12"
     container_name: "metrics-exporter"
     network_mode: "host"
     volumes:
