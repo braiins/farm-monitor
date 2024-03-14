@@ -399,7 +399,7 @@
         "content": "<table width=\"100%\" style:\" border: none !important; table-layout: fixed; \" id=\"bps-table\">\n<tr>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/os/plus?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-os-plus-logo-reverse-rgb.svg?h=d35e19f3056bef1664b2c5cbde453a44\" height=\"25px\" align=\"center\"></a></td>\n<td style=\"text-align: center; padding: 10px 0; width:50%;\"><a href=\"https://braiins.com/pool\"  target=\"_blank\"><img src=\"https://braiins.visualbook.pro/assets/img/logos/braiins-pool-logo-reverse-rgb.svg\" height=\"25px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://braiins.com/toolbox/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-toolbox-logo-white-rgb.svg?h=c08740eec6dfcb889b4293fb9d87146a\" height=\"12px\"></a></td>\n<td style=\"text-align: center; padding: 10px 0;\"><a href=\"https://insights.braiins.com/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/braiins-insights-logo-on-dark-background-rgb.svg?h=aad9d059abab45e38f162e05c1fa322f\" height=\"16px\"></a></td>\n</tr>\n<tr>\n<td style=\"text-align: center; padding: 10px 0;\" colspan=\"2\"><a href=\"https://braiins.com/farm-proxy/?utm_source=Grafana&utm_medium=Dashboard_panel\"  target=\"_blank\" style=\"display:block\"><img src=\"https://design.braiins.com/assets/img/logos/farm-proxy-logo-white-rgb.svg?h=3e5188e1d46f58ccb0b910c6f8184b9b\" height=\"30px\"></a></td>\n</tr>\n</table>",
         "mode": "html"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -471,7 +471,7 @@
         "showUnfilled": true,
         "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -538,7 +538,7 @@
         "content": "Farm Monitor guideline: [documentation](https://academy.braiins.com/en/farm-monitor/about)\n\n[Get support](https://help.braiins.com/en/support/tickets/new) from the Braiins team\n\n*Dashboard is interactive, most of the graphs redirect user to a detail after a click on the statistic/graph.*\n\nFarm Monitor displays only data from devices running on **BOS+** or **stock firmware** (Antminers X17 and X19). BOS+ exposes it's metrics on `ip-address:8081/metrics` and provides many more data then the stock firmware. Data from stock are pulled from cgminer API by **metrics-exporter** and then exposed on `host:8081/metrics` to be digested by Prometheus.",
         "mode": "markdown"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -615,7 +615,7 @@
         "showUnfilled": true,
         "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -714,7 +714,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -722,7 +722,7 @@
             "uid": "PABF2E7BD7AE7B0F4"
           },
           "exemplar": false,
-          "expr": "#sum(metrics_exporter_discovered_devices{fw=~\"bos|stock\"}) by (fw)\ncount by (job) (miner_metadata{job=~\"$OS\",label=~\"$label\",instance!=\"localhost:8081\"})",
+          "expr": "#sum(metrics_exporter_discovered_devices{fw=~\"bos|stock\"}) by (fw)\ncount by (job) (up{job=~\"$OS\",label=~\"$label\",instance!=\"localhost:8081\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "{{job}}",
@@ -818,7 +818,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -905,7 +905,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -983,7 +983,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1061,7 +1061,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1141,7 +1141,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1228,7 +1228,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1313,7 +1313,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1398,7 +1398,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1612,7 +1612,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1742,7 +1743,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#f95355"
+                "color": "#f95355",
+                "value": null
               },
               {
                 "color": "#c063f9",
@@ -1777,9 +1779,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1852,7 +1855,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#ffffff"
+                "color": "#ffffff",
+                "value": null
               }
             ]
           }
@@ -1883,7 +1887,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -1967,7 +1971,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#f4f4f4"
+                "color": "#f4f4f4",
+                "value": null
               },
               {
                 "color": "#f95355",
@@ -2002,7 +2007,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -2101,7 +2106,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#8b7cff"
+                "color": "#8b7cff",
+                "value": null
               }
             ]
           }
@@ -2208,7 +2214,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -2254,6 +2260,143 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PABF2E7BD7AE7B0F4"
+      },
+      "description": "Real dev fee per contract",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 44
+      },
+      "id": 181,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "editorMode": "code",
+          "expr": "sum by(contract_name)(license_details{} + on(instance) group_left() ((sum by(instance) (increase(group_generated_work{name=\"dev-fee\"}[1d])))))\n/\nsum by(contract_name)(license_details{} + on(instance) group_left() ((sum by(instance) (increase(group_generated_work{}[1d])))))",
+          "interval": "",
+          "legendFormat": "{{contract_name}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Realized Devfee Per Contract",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PABF2E7BD7AE7B0F4"
+      },
+      "description": "Agreed dev fee per contract",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 44
+      },
+      "id": 182,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "editorMode": "code",
+          "expr": "avg by(contract_name)(license_details{} + on(instance) group_left() (license_devfee_bps{} * 0.01))",
+          "legendFormat": "{{contract_name}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Contractual Devfee Per Contract",
+      "type": "stat"
+    },
+    {
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
@@ -2263,7 +2406,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 44
+        "y": 49
       },
       "id": 152,
       "panels": [],
@@ -2339,7 +2482,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-purple"
+                "color": "semi-dark-purple",
+                "value": null
               }
             ]
           },
@@ -2351,7 +2495,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 45
+        "y": 50
       },
       "id": 29,
       "options": {
@@ -2428,7 +2572,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -2470,7 +2615,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 45
+        "y": 50
       },
       "id": 38,
       "options": {
@@ -2528,7 +2673,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 53
+        "y": 58
       },
       "id": 135,
       "panels": [],
@@ -2601,7 +2746,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2663,7 +2809,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 54
+        "y": 59
       },
       "id": 36,
       "options": {
@@ -2754,7 +2900,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#2460ff"
+                "color": "#2460ff",
+                "value": null
               },
               {
                 "color": "#4b8aff",
@@ -2774,7 +2921,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 54
+        "y": 59
       },
       "id": 27,
       "options": {
@@ -2789,9 +2936,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -2866,7 +3014,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2928,7 +3077,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 63
+        "y": 68
       },
       "id": 40,
       "options": {
@@ -3007,7 +3156,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -3019,10 +3169,11 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 63
+        "y": 68
       },
       "id": 169,
       "options": {
+        "cellHeight": "sm",
         "footer": {
           "countRows": false,
           "fields": "",
@@ -3034,7 +3185,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3127,7 +3278,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 71
+        "y": 76
       },
       "id": 141,
       "panels": [],
@@ -3179,7 +3330,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "#005e5e"
+                "color": "#005e5e",
+                "value": null
               },
               {
                 "color": "#13a454",
@@ -3194,7 +3346,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 72
+        "y": 77
       },
       "id": 25,
       "options": {
@@ -3209,9 +3361,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3265,7 +3418,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3280,7 +3434,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 72
+        "y": 77
       },
       "id": 24,
       "options": {
@@ -3295,9 +3449,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3372,7 +3527,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3387,7 +3543,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 79
+        "y": 84
       },
       "id": 49,
       "options": {
@@ -3453,7 +3609,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -3464,7 +3621,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 84
       },
       "id": 149,
       "options": {
@@ -3482,9 +3639,10 @@
         "showUnfilled": true,
         "text": {
           "titleSize": 24
-        }
+        },
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3523,7 +3681,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 92
       },
       "id": 145,
       "panels": [],
@@ -3575,7 +3733,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -3586,7 +3745,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 88
+        "y": 93
       },
       "id": 57,
       "options": {
@@ -3601,9 +3760,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3658,7 +3818,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -3669,7 +3830,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 88
+        "y": 93
       },
       "id": 55,
       "options": {
@@ -3684,9 +3845,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3757,7 +3919,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 96
+        "y": 101
       },
       "id": 164,
       "options": {
@@ -3772,9 +3934,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3836,10 +3999,11 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 96
+        "y": 101
       },
       "id": 166,
       "options": {
+        "cellHeight": "sm",
         "footer": {
           "countRows": false,
           "fields": "",
@@ -3856,7 +4020,7 @@
           }
         ]
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -3978,7 +4142,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 104
+        "y": 109
       },
       "id": 32,
       "panels": [],
@@ -4113,7 +4277,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 105
+        "y": 110
       },
       "id": 45,
       "links": [],
@@ -4242,7 +4406,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 105
+        "y": 110
       },
       "id": 43,
       "options": {
@@ -4295,7 +4459,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 112
+        "y": 117
       },
       "id": 159,
       "panels": [],
@@ -4367,7 +4531,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 113
+        "y": 118
       },
       "id": 161,
       "options": {
@@ -4382,9 +4546,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "valueMode": "color"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -4451,7 +4616,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 113
+        "y": 118
       },
       "id": 162,
       "options": {
@@ -4472,7 +4637,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -4552,7 +4717,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 118
+        "y": 123
       },
       "id": 157,
       "options": {
@@ -4641,7 +4806,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 118
+        "y": 123
       },
       "id": 160,
       "options": {
@@ -4771,7 +4936,11 @@
         "type": "custom"
       },
       {
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "23.12",
+          "value": "23.12"
+        },
         "datasource": {
           "type": "prometheus",
           "uid": "PABF2E7BD7AE7B0F4"
@@ -4801,7 +4970,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Farm Dashboard",
-  "uid": "db7f8ee2-e051-4dfd-bc02-de973d67b091",
-  "version": 1,
+  "uid": "e34e32ad-1569-43d3-82cd-ce42ab12aea8",
+  "version": 2,
   "weekStart": ""
 }
