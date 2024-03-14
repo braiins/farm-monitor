@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,11 +24,15 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 12,
+  "id": 20,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PABF2E7BD7AE7B0F4"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -34,8 +41,11 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "auto",
-            "filterable": true
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
           },
           "links": [],
           "mappings": [],
@@ -93,8 +103,10 @@
                 }
               },
               {
-                "id": "custom.displayMode",
-                "value": "color-text"
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
               },
               {
                 "id": "noValue",
@@ -109,8 +121,10 @@
             },
             "properties": [
               {
-                "id": "custom.displayMode",
-                "value": "color-text"
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
               },
               {
                 "id": "unit",
@@ -229,6 +243,46 @@
                 "value": "-"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Realized Devfee"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "noValue",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Contractual Devfee"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "noValue",
+                "value": "-"
+              }
+            ]
           }
         ]
       },
@@ -240,7 +294,9 @@
       },
       "id": 2,
       "options": {
+        "cellHeight": "sm",
         "footer": {
+          "countRows": false,
           "fields": "",
           "reducer": [
             "sum"
@@ -353,6 +409,36 @@
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "Efficiency"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (instance)(increase(group_generated_work{name=\"dev-fee\"}[1d]))/sum by (instance)(increase(group_generated_work{}[1d]))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "{{instance}}",
+          "range": false,
+          "refId": "RealizedDevfee"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "avg by (instance) (license_devfee_bps * 0.01)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "{{instance}}",
+          "range": false,
+          "refId": "ContractualDevfee"
         }
       ],
       "title": "List of Miners",
@@ -374,6 +460,8 @@
               "Time 5": true,
               "Time 6": true,
               "Time 7": true,
+              "Time 8": true,
+              "Time 9": true,
               "Value #B": true,
               "Value #MinerMetadata": true,
               "__name__ 1": true,
@@ -394,9 +482,11 @@
               "label 1": false,
               "label 2": true,
               "label 3": true,
+              "site_id 1": true,
               "site_id 2": true,
               "site_id 3": true,
               "socket": true,
+              "subnet_id 1": true,
               "subnet_id 2": true,
               "subnet_id 3": true,
               "type": true
@@ -441,11 +531,13 @@
               "Time 4": "Time",
               "Value #A": "Hashrate",
               "Value #C": "Power Limit",
+              "Value #ContractualDevfee": "Contractual Devfee",
               "Value #Efficiency": "Efficiency",
               "Value #FanRPM": "Fan RPM",
               "Value #FanSpeed": "Fan Speed",
               "Value #Hashrate": "Hashrate",
               "Value #PowerLimit": "Power Limit",
+              "Value #RealizedDevfee": "Realized Devfee",
               "Value #Temp": "Temperature",
               "__name__ 1": "",
               "building 1": "Building",
@@ -470,7 +562,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 35,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -484,7 +576,6 @@
   "timezone": "",
   "title": "List of Miners",
   "uid": "R1-4NFs7k",
-  "version": 4,
+  "version": 3,
   "weekStart": ""
 }
-

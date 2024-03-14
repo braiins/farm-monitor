@@ -1,7 +1,5 @@
 # Braiins Farm Monitor
 
-<img src="https://design.braiins.com/assets/img/logos/made-by-braiins-logo-black-rgb.svg?h=ff5372ea922b90918a18d21131ae0114" alt="made-by-braiins" style="width:25%;"/>
-
 ## Introduction
 Braiins is providing to the mining world a free monitoring solution **Braiins Farm Monitor**. Braiins Farm Monitor encompasses three primary components:
 * Metrics Exporter
@@ -38,7 +36,7 @@ Braiins Farm Monitor has to be configured in the config file `./monitoring/metri
 ### Example Configuration
 Configuration for a farm, where miners have IP addresses in the IP ranges `1.2.0.*`, `1.2.*.2`, `1.3.0.*` and `1.3.*.2`.
 
-```
+```toml
 # scraping internal for stock FW devices, scraping interval for BOS+ devices is defined in the monitoring/promethus/prometheus.yml (default is also 5s)
 [scraping]
 stock_fw_scrape_interval = "1m"
