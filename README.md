@@ -13,7 +13,7 @@ Go to [Braiins Academy](https://academy.braiins.com/en/farm-monitor/about) for t
 ## Quick Start
 1. Clone the git repository git clone https://github.com/braiins/farm-monitor.git
 2. Go to the farm-monitor repository `cd farm-monitor`
-3. Define IP address ranges for the device discovery in the config file `./monitoring/metrics_exporter/metrics-exporter.toml`
+3. Define IP address ranges for the device discovery in the config file `./monitoring/metrics_exporter/metrics_exporter.toml`
 4. Run monitoring with the command `docker compose up -d`
 5. Open URL http://localhost:3000 to see the Farm Dashboard in Grafana
 
@@ -31,7 +31,7 @@ At the beginning it is required to install a couple of prerequisites:
 * [Git](https://git-scm.com/downloads)
 
 ## Configuration
-Braiins Farm Monitor has to be configured in the config file `./monitoring/metrics_exporter/metrics-exporter.toml`.
+Braiins Farm Monitor has to be configured in the config file `./monitoring/metrics_exporter/metrics_exporter.toml`.
 
 ### Example Configuration
 Configuration for a farm, where miners have IP addresses in the IP ranges `1.2.0.*`, `1.2.*.2`, `1.3.0.*` and `1.3.*.2`.
