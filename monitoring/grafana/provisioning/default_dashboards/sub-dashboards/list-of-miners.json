@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 20,
+  "id": 7,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -215,7 +215,7 @@
                     "options": {
                       "braiinsos-data": {
                         "index": 0,
-                        "text": "BOS+"
+                        "text": "BOS"
                       },
                       "metrics-exporter": {
                         "index": 1,
@@ -281,6 +281,49 @@
               {
                 "id": "noValue",
                 "value": "-"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "License State"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "yellow",
+                        "index": 0,
+                        "text": "None"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Valid"
+                      },
+                      "2": {
+                        "color": "dark-red",
+                        "index": 2,
+                        "text": "Expired"
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 3,
+                        "text": "Limited"
+                      },
+                      "-1": {
+                        "color": "purple",
+                        "index": 4,
+                        "text": "Legacy BOS"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
               }
             ]
           }
@@ -439,6 +482,21 @@
           "legendFormat": "{{instance}}",
           "range": false,
           "refId": "ContractualDevfee"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PABF2E7BD7AE7B0F4"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(((license_state + on(instance) group_left(contract_name,license_type) license_details) or on (instance) license_state) or on (instance, job) miner_metadata-1) + on (instance) group_left(device_id,os_version)(miner_metadata)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "{{instance}}",
+          "range": false,
+          "refId": "BOS Contracts"
         }
       ],
       "title": "List of Miners",
@@ -454,6 +512,7 @@
           "options": {
             "excludeByName": {
               "Time 1": true,
+              "Time 10": true,
               "Time 2": true,
               "Time 3": true,
               "Time 4": true,
@@ -463,6 +522,7 @@
               "Time 8": true,
               "Time 9": true,
               "Value #B": true,
+              "Value #BOS Contracts": false,
               "Value #MinerMetadata": true,
               "__name__ 1": true,
               "__name__ 2": true,
@@ -472,7 +532,11 @@
               "building 2": true,
               "building 3": true,
               "device_id": true,
+              "device_id 1": true,
+              "device_id 2": true,
               "fw": true,
+              "fw 1": true,
+              "fw 2": true,
               "host_id 1": true,
               "host_id 2": true,
               "host_id 3": true,
@@ -482,6 +546,10 @@
               "label 1": false,
               "label 2": true,
               "label 3": true,
+              "model 1": true,
+              "model 2": true,
+              "os_version 1": true,
+              "os_version 2": true,
               "site_id 1": true,
               "site_id 2": true,
               "site_id 3": true,
@@ -530,6 +598,7 @@
             "renameByName": {
               "Time 4": "Time",
               "Value #A": "Hashrate",
+              "Value #BOS Contracts": "License State",
               "Value #C": "Power Limit",
               "Value #ContractualDevfee": "Contractual Devfee",
               "Value #Efficiency": "Efficiency",
@@ -541,6 +610,8 @@
               "Value #Temp": "Temperature",
               "__name__ 1": "",
               "building 1": "Building",
+              "contract_name": "Contract Name",
+              "device_id 2": "",
               "fw": "",
               "host_id 1": "",
               "instance": "Miner",
@@ -548,6 +619,7 @@
               "job 2": "Firmware",
               "label 1": "Building",
               "label 2": "",
+              "license_type": "License Type",
               "model": "Model",
               "os_version": "OS Version",
               "site_id 1": "Site",
@@ -576,6 +648,6 @@
   "timezone": "",
   "title": "List of Miners",
   "uid": "R1-4NFs7k",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }

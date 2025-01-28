@@ -59,7 +59,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "**Nominal hashrate**: based on manufacturer data \\\n**Real hashrate**: measured hashrate based on 1m average \\\n*Click on the graph to see list of all devices* \\\nnote: nominal hashrate is not available for Antminers S9 with BOS+",
+      "description": "**Nominal hashrate**: based on manufacturer data \\\n**Real hashrate**: measured hashrate based on 1m average \\\n*Click on the graph to see list of all devices* \\\nnote: nominal hashrate is not available for Antminers S9 with BOS",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -417,7 +417,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "**Measured to calculated ratio**: real hashrate / nominal hashrate \\\nnote: MCR not available for Antminers S9 with BOS+",
+      "description": "**Measured to calculated ratio**: real hashrate / nominal hashrate \\\nnote: MCR not available for Antminers S9 with BOS",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -535,7 +535,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "Farm Monitor guideline: [documentation](https://academy.braiins.com/en/farm-monitor/about)\n\n[Get support](https://help.braiins.com/en/support/tickets/new) from the Braiins team\n\n*Dashboard is interactive, most of the graphs redirect user to a detail after a click on the statistic/graph.*\n\nFarm Monitor displays only data from devices running on **BOS+** or **stock firmware** (Antminers X17 and X19). BOS+ exposes it's metrics on `ip-address:8081/metrics` and provides many more data then the stock firmware. Data from stock are pulled from cgminer API by **metrics-exporter** and then exposed on `host:8081/metrics` to be digested by Prometheus.",
+        "content": "Farm Monitor guideline: [documentation](https://academy.braiins.com/en/farm-monitor/about).\n\n[Get support](https://help.braiins.com/en/support/tickets/new) from the Braiins team.\n\n*Dashboard is interactive, most of the graphs redirect user to a detail after a click on the statistic/graph.*\n\nFarm Monitor displays only data from devices running on **BOS** or **stock firmware** (Antminers X17 and X19). BOS exposes it's metrics on `ip-address:8081/metrics` and provides many more data then the stock firmware. Data from stock are pulled from cgminer API by **metrics-exporter** and then exposed on `host:8081/metrics` to be digested by Prometheus.",
         "mode": "markdown"
       },
       "pluginVersion": "9.5.1",
@@ -556,7 +556,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Hashrate by FW Type: BOS+ vs. Stock FW",
+      "description": "Hashrate by FW Type: BOS vs. Stock FW",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -636,7 +636,7 @@
           "id": "renameByRegex",
           "options": {
             "regex": "braiinsos-data",
-            "renamePattern": "BOS+"
+            "renamePattern": "BOS"
           }
         },
         {
@@ -654,7 +654,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Discovered miners by FW type: *BOS+* vs. *Stock FW*",
+      "description": "Discovered miners by FW type: *BOS* vs. *Stock FW*",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -735,7 +735,7 @@
           "id": "renameByRegex",
           "options": {
             "regex": "braiinsos-data",
-            "renamePattern": "BOS+"
+            "renamePattern": "BOS"
           }
         },
         {
@@ -840,7 +840,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Average fan speed, available only for BOS+ devices.",
+      "description": "Average fan speed, available only for BOS devices.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -919,7 +919,7 @@
           "refId": "A"
         }
       ],
-      "title": "Average Fan % (only BOS+)",
+      "title": "Average Fan % (only BOS)",
       "type": "stat"
     },
     {
@@ -927,7 +927,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Targeted power consumption of the farm (only BOS+)",
+      "description": "Targeted power consumption of the farm (only BOS)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -997,7 +997,7 @@
           "refId": "A"
         }
       ],
-      "title": "Farm Power Target (only BOS+)",
+      "title": "Farm Power Target (only BOS)",
       "type": "stat"
     },
     {
@@ -1005,7 +1005,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Estimated power consumption of the farm (only for BOS+ devices)",
+      "description": "Estimated power consumption of the farm (only for BOS devices)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1076,7 +1076,7 @@
           "refId": "A"
         }
       ],
-      "title": "Farm Est. Power (only BOS+)",
+      "title": "Farm Est. Power (only BOS)",
       "type": "stat"
     },
     {
@@ -1084,7 +1084,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Average efficiency as *Watt / THs* (only for BOS+ devices)",
+      "description": "Average efficiency as *Watt / THs* (only for BOS devices)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1156,7 +1156,7 @@
           "refId": "A"
         }
       ],
-      "title": "Avg. Efficiency(only BOS+)",
+      "title": "Avg. Efficiency(only BOS)",
       "type": "stat"
     },
     {
@@ -1164,7 +1164,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Number of currently tuning devices (only for BOS+ devices)",
+      "description": "Number of currently tuning devices (only for BOS devices)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1243,7 +1243,7 @@
           "refId": "A"
         }
       ],
-      "title": "Autotuning In Progress (only BOS+)",
+      "title": "Autotuning In Progress (only BOS)",
       "type": "stat"
     },
     {
@@ -1328,7 +1328,7 @@
           "refId": "A"
         }
       ],
-      "title": "Less Than 3 HBs (only BOS+)",
+      "title": "Less Than 3 HBs (only BOS)",
       "type": "stat"
     },
     {
@@ -1336,7 +1336,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Number of miners with invalid Braiins OS+ license. Reasons could be: \n\n* expired license\n* limited license \n\n*Click on the graph to see list of all devices with invalid license* ",
+      "description": "Number of miners with invalid Braiins OS license. Reasons could be: \n\n* expired license\n* limited license \n\n*Click on the graph to see list of all devices with invalid license* ",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1560,7 +1560,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Hashrate by type (segmentation only for BOS+): \\\n*duplicate*: duplicate shares which are producing duplicate hashrate \\\n*invalid*: stales and other rejects are producing invalid hashrate \\\n*valid*: accepted shares producing valid hashrate",
+      "description": "Hashrate by type (segmentation only for BOS): \\\n*duplicate*: duplicate shares which are producing duplicate hashrate \\\n*invalid*: stales and other rejects are producing invalid hashrate \\\n*valid*: accepted shares producing valid hashrate",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1703,7 +1703,7 @@
           "refId": "A"
         }
       ],
-      "title": "Hashrate by type (only BOS+)",
+      "title": "Hashrate by type (only BOS)",
       "type": "timeseries"
     },
     {
@@ -1711,7 +1711,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Miners with lowest MCR \\\nClick to the column to get redirected to the miner \\\n**Measured to calculated ratio**: real hashrate / nominal hashrate \\\nnote: MCR not available for Antminers S9 with BOS+",
+      "description": "Miners with lowest MCR \\\nClick to the column to get redirected to the miner \\\n**Measured to calculated ratio**: real hashrate / nominal hashrate \\\nnote: MCR not available for Antminers S9 with BOS",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1823,7 +1823,7 @@
           "refId": "A"
         }
       ],
-      "title": "Braiins OS+ License",
+      "title": "Braiins OS License",
       "type": "row"
     },
     {
@@ -1831,13 +1831,20 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Number of Braiins OS+ devices per contract",
+      "description": "Number of Braiins OS devices per contract",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "displayName": "Contract: ${__field.labels.contract_name}",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "",
+              "url": "d/kznoUNa4k/drill-down-license-instance?orgId=1"
+            }
+          ],
           "mappings": [
             {
               "options": {
@@ -1944,7 +1951,7 @@
           "refId": "A"
         }
       ],
-      "title": "Braiins OS+ License Alert List",
+      "title": "Braiins OS License Alert List",
       "type": "alertlist"
     },
     {
@@ -1952,7 +1959,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Overview of Braiins OS+ licenses\n* None - no license yet, device in initialization period\n* Valid - valid license\n* Limited - no license, initialization period passed, 15% of hashrate is drained\n* Expired - expired licence, 15% of hashrate is drained\n* Legacy BOS+ - legacy BOS+ not supporting licenses",
+      "description": "Overview of Braiins OS licenses\n* None - no license yet, device in initialization period\n* Valid - valid license\n* Limited - no license, initialization period passed, 15% of hashrate is drained\n* Expired - expired licence, 15% of hashrate is drained\n* Legacy BOS - legacy BOS not supporting licenses",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2065,12 +2072,13 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": false,
           "expr": "count((license_state or on (instance, job) miner_metadata{job=\"braiinsos-data\"} -10) < 0)",
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "Legacy BOS+",
+          "legendFormat": "Legacy BOS",
           "refId": "E"
         }
       ],
@@ -3129,7 +3137,7 @@
           "refId": "C"
         }
       ],
-      "title": "Min, Avg, Max Fan Speed (only BOS+)",
+      "title": "Min, Avg, Max Fan Speed (only BOS)",
       "type": "timeseries"
     },
     {
@@ -3786,7 +3794,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Version of the firmware \\\n*BOS+*: bos:{version} \\\n*Stock FW*: stock:{version}",
+      "description": "Version of the firmware \\\n*BOS*: bos:{version} \\\n*Stock FW*: stock:{version}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3876,7 +3884,7 @@
           "id": "renameByRegex",
           "options": {
             "regex": "braiinsos-data",
-            "renamePattern": "BOS+"
+            "renamePattern": "BOS"
           }
         }
       ],
@@ -3961,7 +3969,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Average, min and max efficiency by each miner model. Available only for *BOS+*",
+      "description": "Average, min and max efficiency by each miner model. Available only for *BOS*",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4079,7 +4087,7 @@
           "refId": "Count"
         }
       ],
-      "title": "Miner Efficiency (only BOS+)",
+      "title": "Miner Efficiency (only BOS)",
       "transformations": [
         {
           "id": "seriesToColumns",
@@ -4157,7 +4165,7 @@
           "refId": "A"
         }
       ],
-      "title": "Power Target (only BOS+)",
+      "title": "Power Target (only BOS)",
       "type": "row"
     },
     {
@@ -4165,7 +4173,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Power target is taken from each instance (miner).  Minimum, Average, and Maximum is then calculated (BOS+ only)",
+      "description": "Power target is taken from each instance (miner).  Minimum, Average, and Maximum is then calculated (BOS only)",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4333,7 +4341,7 @@
           "refId": "C"
         }
       ],
-      "title": "Min, Avg, Max Power Target (only BOS+)",
+      "title": "Min, Avg, Max Power Target (only BOS)",
       "type": "timeseries"
     },
     {
@@ -4341,7 +4349,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Estimated power consumption in Watts and power target (only BOS+).",
+      "description": "Estimated power consumption in Watts and power target (only BOS).",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4567,7 +4575,7 @@
           "id": "renameByRegex",
           "options": {
             "regex": "braiinsos-data",
-            "renamePattern": "BOS+"
+            "renamePattern": "BOS"
           }
         },
         {
@@ -4585,7 +4593,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Actual no. of devices per user. *BOS+* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users in the same time. The miner has to mining.",
+      "description": "Actual no. of devices per user. *BOS* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users in the same time. The miner has to mining.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4651,7 +4659,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "Hashrate per user, *BOS+* devices are taking into account only accpeted shares. *Stock FW* devices are taking in to account all shares since cgminer API doesn't provide invalid/rejected shares. ",
+      "description": "Hashrate per user, *BOS* devices are taking into account only accpeted shares. *Stock FW* devices are taking in to account all shares since cgminer API doesn't provide invalid/rejected shares. ",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4694,10 +4702,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -4745,7 +4749,7 @@
         "type": "prometheus",
         "uid": "PABF2E7BD7AE7B0F4"
       },
-      "description": "No. of devices per user. *BOS+* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users at the same time.",
+      "description": "No. of devices per user. *BOS* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users at the same time.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4841,7 +4845,7 @@
       {
         "allValue": "",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -4850,7 +4854,7 @@
           "uid": "PABF2E7BD7AE7B0F4"
         },
         "definition": "label_values(job)",
-        "description": "Firmware - braiinsos-data stands for the BOS+ and metrics-exporter stands for the stock FW",
+        "description": "Firmware - braiinsos-data stands for the BOS and metrics-exporter stands for the stock FW",
         "hide": 0,
         "includeAll": true,
         "label": "OS",
@@ -4869,7 +4873,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -4897,7 +4901,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "5m",
           "value": "5m"
         },
@@ -4964,6 +4968,6 @@
   "timezone": "",
   "title": "Farm Dashboard",
   "uid": "e34e32ad-1569-43d3-82cd-ce42ab12aea8",
-  "version": 7,
+  "version": 38,
   "weekStart": ""
 }
