@@ -11,6 +11,7 @@ scrape_configs:
     metrics_path: "/metrics"
     honor_labels: true
     scrape_interval: 30s
+    fallback_scrape_protocol: "PrometheusText0.0.4"
     static_configs:
     - targets: ["localhost:8081"]
     metric_relabel_configs:
