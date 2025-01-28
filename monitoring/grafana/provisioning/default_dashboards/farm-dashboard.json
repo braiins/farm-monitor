@@ -825,10 +825,12 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "max(temperature{location=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\nmax(hashboard_temperature{type=\"raw\",job=~\"$OS\",label=~\"$label\"} < 200)",
+          "expr": "max(chip_temperature_celsius{source=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\nmax(chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\",job=~\"$OS\",label=~\"$label\"} < 200) or \nmax(hashboard_temperature{type=\"raw\",job=~\"$OS\",label=~\"$label\"} < 200) or\nmax(temperature{location=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200)\n",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2838,10 +2840,12 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "avg(max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200) or max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200))",
+          "expr": "avg(\n  max by (instance) (chip_temperature_celsius{source=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by(instance) (chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200) or\n  max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200))",
           "interval": "",
           "legendFormat": "Avg Temperature",
+          "range": true,
           "refId": "A"
         },
         {
@@ -2849,11 +2853,13 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "max(max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200) or max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200))",
+          "expr": "max(\n  max by (instance) (chip_temperature_celsius{source=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by(instance) (chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200) or\n  max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200))",
           "hide": false,
           "interval": "",
           "legendFormat": "Max Temperature",
+          "range": true,
           "refId": "B"
         },
         {
@@ -2861,11 +2867,13 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "min(max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200) or max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200))",
+          "expr": "min(\n  max by (instance) (chip_temperature_celsius{source=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by(instance) (chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by (instance) (hashboard_temperature{job=~\"$OS\",label=~\"$label\",type=\"raw\"} < 200) or\n  max by (instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200))",
           "hide": false,
           "interval": "",
           "legendFormat": "Min Temperature",
+          "range": true,
           "refId": "C"
         }
       ],
@@ -2954,8 +2962,9 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "topk(10,sort_desc(max by(label,instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200) or max by(label,instance) (hashboard_temperature{type=\"raw\",job=~\"$OS\",label=~\"$label\"} < 200)))",
+          "expr": "topk(10,sort_desc(\n  max by(label,instance) (chip_temperature_celsius{source=\"chip\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by(label,instance) (chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\",job=~\"$OS\",label=~\"$label\"} < 200) or \n  max by(label,instance) (hashboard_temperature{type=\"raw\",job=~\"$OS\",label=~\"$label\"} < 200) or\n  max by(label,instance) (temperature{job=~\"$OS\",label=~\"$label\"} < 200)))",
           "instant": true,
           "interval": "",
           "legendFormat": " {{label}}, {{instance}}",
@@ -4935,8 +4944,8 @@
       {
         "current": {
           "selected": false,
-          "text": "25.01",
-          "value": "25.01"
+          "text": "24.03.1",
+          "value": "24.03.1"
         },
         "datasource": {
           "type": "prometheus",
@@ -4968,6 +4977,6 @@
   "timezone": "",
   "title": "Farm Dashboard",
   "uid": "e34e32ad-1569-43d3-82cd-ce42ab12aea8",
-  "version": 38,
+  "version": 41,
   "weekStart": ""
 }
