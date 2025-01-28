@@ -26,7 +26,7 @@
   "liveNow": false,
   "panels": [
     {
-      "description": "List os currently tuning devices (only *BOS+*)",
+      "description": "List os currently tuning devices (only *BOS*)",
       "fieldConfig": {
         "defaults": {
           "color": {

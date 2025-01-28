@@ -27,7 +27,7 @@
   "liveNow": false,
   "panels": [
     {
-      "description": "Actual number of devices per user. *BOS+* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users in the same time.",
+      "description": "Actual number of devices per user. *BOS* has a feature to \"slice\" a miner into pool groups, so that it is possible to mine on multiple users in the same time.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -97,7 +97,7 @@
                     "options": {
                       "braiinsos-data": {
                         "index": 0,
-                        "text": "BOS+"
+                        "text": "BOS"
                       },
                       "metrics-exporter": {
                         "index": 1,

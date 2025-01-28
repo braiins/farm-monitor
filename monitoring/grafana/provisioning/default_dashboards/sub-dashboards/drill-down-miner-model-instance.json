@@ -27,7 +27,7 @@
   "liveNow": false,
   "panels": [
     {
-      "description": "List of devices by model. Device ID only for *BOS+* devices.",
+      "description": "List of devices by model. Device ID only for *BOS* devices.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -90,7 +90,7 @@
                     "options": {
                       "braiinsos-data": {
                         "index": 0,
-                        "text": "BOS+"
+                        "text": "BOS"
                       },
                       "metrics-exporter": {
                         "index": 1,
