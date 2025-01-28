@@ -53,20 +53,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "purple",
                 "value": null
-              },
-              {
-                "color": "super-light-yellow",
-                "value": 60
-              },
-              {
-                "color": "dark-orange",
-                "value": 70
-              },
-              {
-                "color": "dark-red",
-                "value": 80
               }
             ]
           }
@@ -133,6 +121,46 @@
               {
                 "id": "noValue",
                 "value": "-"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "text",
+                      "value": null
+                    },
+                    {
+                      "color": "dark-blue",
+                      "value": 0
+                    },
+                    {
+                      "color": "semi-dark-blue",
+                      "value": 20
+                    },
+                    {
+                      "color": "blue",
+                      "value": 40
+                    },
+                    {
+                      "color": "green",
+                      "value": 56
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 65
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 90
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -324,6 +352,12 @@
                     "type": "value"
                   }
                 ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
               }
             ]
           }
@@ -361,8 +395,9 @@
             "type": "prometheus",
             "uid": "PABF2E7BD7AE7B0F4"
           },
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "max by(instance) (temperature) or max by (instance) (hashboard_temperature{type=\"raw\"})",
+          "expr": "max by(instance) (chip_temperature_celsius{source=\"chip\"}) or \nmax by(instance) (chip_temperature_celsius{location=\"outlet\",source=\"approximated(pcb_sensor)\"}) or \nmax by (instance) (hashboard_temperature{type=\"raw\"}) or\nmax by(instance) (temperature)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -648,6 +683,6 @@
   "timezone": "",
   "title": "List of Miners",
   "uid": "R1-4NFs7k",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
