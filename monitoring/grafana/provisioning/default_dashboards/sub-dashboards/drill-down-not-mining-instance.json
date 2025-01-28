@@ -82,7 +82,7 @@
                     "options": {
                       "braiinsos-data": {
                         "index": 0,
-                        "text": "BOS+"
+                        "text": "BOS"
                       },
                       "metrics-exporter": {
                         "index": 1,
@@ -192,7 +192,7 @@
           "value": "$__all"
         },
         "definition": "label_values(job)",
-        "description": "Firmware - braiinsos-data stands for the BOS+ and metrics-exporter stands for the stock FW",
+        "description": "Firmware - braiinsos-data stands for the BOS and metrics-exporter stands for the stock FW",
         "hide": 0,
         "includeAll": true,
         "label": "OS",

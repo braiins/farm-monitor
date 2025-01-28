@@ -93,7 +93,7 @@
                     "options": {
                       "braiinsos-data": {
                         "index": 0,
-                        "text": "BOS+"
+                        "text": "BOS"
                       },
                       "metrics-exporter": {
                         "index": 1,

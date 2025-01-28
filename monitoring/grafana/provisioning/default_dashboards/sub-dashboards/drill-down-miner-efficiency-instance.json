@@ -27,7 +27,7 @@
   "liveNow": false,
   "panels": [
     {
-      "description": "List of miners by miner model. Device ID available only for *BOS+*",
+      "description": "List of miners by miner model. Device ID available only for *BOS*",
       "fieldConfig": {
         "defaults": {
           "color": {

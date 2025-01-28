@@ -164,7 +164,7 @@
               "device_id": "Device ID",
               "instance": "Miner",
               "license_type": "License Type",
-              "os_version": "BOS+ Version"
+              "os_version": "BOS Version"
             }
           }
         }

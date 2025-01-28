@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,12 +24,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 20,
+  "id": 18,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "description": "Table of Braiins OS+ devices with the state of the License. *Legacy BOS+* standas for older version of the firmware which doesn't support licenses, only standard devfee.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PABF2E7BD7AE7B0F4"
+      },
+      "description": "Table of Braiins OS devices with the state of the License. *Legacy BOS* standas for older version of the firmware which doesn't support licenses, only standard devfee.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -34,7 +41,10 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "color-text"
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
@@ -82,7 +92,7 @@
                       "-1": {
                         "color": "dark-purple",
                         "index": 4,
-                        "text": "Legacy BOS+"
+                        "text": "Legacy BOS"
                       }
                     },
                     "type": "value"
@@ -119,7 +129,9 @@
       },
       "id": 2,
       "options": {
+        "cellHeight": "sm",
         "footer": {
+          "countRows": false,
           "fields": "",
           "reducer": [
             "sum"
@@ -144,7 +156,7 @@
           "refId": "A"
         }
       ],
-      "title": "Braiins OS+ Devices & Licenses",
+      "title": "Braiins OS Devices & Licenses",
       "transformations": [
         {
           "id": "organize",
@@ -174,7 +186,7 @@
               "device_id": "Device ID",
               "instance": "Miner",
               "license_type": "License Type",
-              "os_version": "BOS+ Version"
+              "os_version": "BOS Version"
             }
           }
         }
@@ -182,7 +194,8 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 35,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -196,6 +209,6 @@
   "timezone": "",
   "title": "Drill-Down (License --> Instance)",
   "uid": "kznoUNa4k",
-  "version": 8,
+  "version": 2,
   "weekStart": ""
 }

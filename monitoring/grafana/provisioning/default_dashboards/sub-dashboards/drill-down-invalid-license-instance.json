@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,12 +24,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 19,
+  "id": 16,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "description": "Table covering devices with invalid Braiins OS+ license. Those devices have either **expired** license or **none** (not initialized) license.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PABF2E7BD7AE7B0F4"
+      },
+      "description": "Table covering devices with invalid Braiins OS license. Those devices have either **expired** license or **none** (not initialized) license.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -34,8 +41,11 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "color-text",
-            "filterable": true
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false
           },
           "links": [],
           "mappings": [],
@@ -116,7 +126,9 @@
       },
       "id": 2,
       "options": {
+        "cellHeight": "sm",
         "footer": {
+          "countRows": false,
           "fields": "",
           "reducer": [
             "sum"
@@ -173,7 +185,7 @@
               "device_id": "Device ID",
               "instance": "Miner",
               "license_type": "License Type",
-              "os_version": "BOS+ Version"
+              "os_version": "BOS Version"
             }
           }
         }
@@ -182,7 +194,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 35,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -196,6 +208,6 @@
   "timezone": "",
   "title": "Drill-Down (Invalid License --> Instance)",
   "uid": "syQG2Ha4z",
-  "version": 9,
+  "version": 2,
   "weekStart": ""
 }
