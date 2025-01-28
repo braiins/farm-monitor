@@ -1,6 +1,6 @@
 # Inspired by: https://github.com/VolkovLabs/volkovlabs-app/blob/main/Dockerfile
 
-FROM grafana/grafana:9.5.1
+FROM grafana/grafana:11.4.0
 
 COPY entrypoint.sh /
 
